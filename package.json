@@ -21,6 +21,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "bootstrap": "^4.6.1",
     "rxjs": "~6.6.0",
+    "slim-js": "^5.0.10",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
