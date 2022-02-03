@@ -1,0 +1,9 @@
+div.carousel {
+    background-color: red;
+    height: 80vh;
+    --carousel-height: 80vh;
+}
+.carousel img {
+    width: 100%;
+    max-height: var(--carousel-height);
+}
