@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    height: 80px;
+}
+
+img.logo-img {
+    width: 70px;
+}
+
+form {
+    background-color: #fff;
+    box-shadow: 0px 0px 2px 1px rgba(68, 67, 67, 0.466);
+    padding: 8px 20px;
+    border-radius: 50px;
+    min-width: 450px;
+}
+.navbar input {
+    width: 85%;
+    padding: 0 5px;
+}
+form input, button {
+    background-color: #fff;
+    border: none;
+}
+input:focus {
+    outline: none;
+}
