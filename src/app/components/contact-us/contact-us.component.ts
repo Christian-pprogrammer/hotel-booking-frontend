@@ -16,5 +16,17 @@ export class ContactUsComponent {
       email: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(200)])
     }),
     message: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(500)])
-  })
+  });
+
+  get name() {
+    return this.form.get('info')?.get('name');
+  }
+
+  get email() {
+    return this.form.get('info')?.get('email');
+  }
+
+  get message() {
+    return this.form.get('message');
+  }
 }

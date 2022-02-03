@@ -1,3 +1,10 @@
 div.footer {
-    background-color: ;
+    background-color: #f7f7f7;
+    min-height: 300px;
+    align-items: center;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
 }
