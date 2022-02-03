@@ -18,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //angular material
 
 import { MatIconModule } from '@angular/material/icon';
+import { AppRoutingModule } from './app-routing.module';
+import { RoomsComponent } from './components/rooms/rooms.component';
+import { HallsComponent } from './components/halls/halls.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +33,17 @@ import { MatIconModule } from '@angular/material/icon';
     CardComponent,
     ServicesComponent,
     ContactUsComponent,
-    FooterComponent
+    FooterComponent,
+    RoomsComponent,
+    HallsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
