@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid: 400px 400px / repeat(3, 400px);
+  justify-content: center;
+}
+
+@media only screen and (max-width: 576px) {
+    .container {
+        width: 100%;
+        display: block;
+    }
+}

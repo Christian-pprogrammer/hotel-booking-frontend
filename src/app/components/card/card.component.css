@@ -1,0 +1,11 @@
+.card {
+    height: 400px;
+    width: 100%;
+    padding: 20px !important;
+    border: none;
+}
+
+h3 {
+    color: #fff;
+    text-align: center;
+}
