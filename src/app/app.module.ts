@@ -13,6 +13,11 @@ import { CardComponent } from './components/card/card.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//angular material
+
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,9 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
