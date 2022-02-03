@@ -1,0 +1,24 @@
+input[type=submit] {
+    display: block !important;
+    width: 250px;
+}
+
+
+div.info {
+    display: flex;
+    justify-content: space-between !important;
+}
+
+input.form-control {
+    width: 98%;
+}
+
+.second {
+    float: right;
+}
+
+@media only screen and (max-width: 576px) {
+    .second {
+        float: none;
+    }
+}

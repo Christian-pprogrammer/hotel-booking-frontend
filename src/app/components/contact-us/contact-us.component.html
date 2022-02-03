@@ -1,1 +1,19 @@
-<p>contact-us works!</p>
+<div class="container">
+<h3 class="my-4 text-center">Contact us</h3>
+<form [formGroup]="form">
+    <div class="info row no-gutters" formGroupName="info">
+        <div class="col-sm">
+            <input type="text" class="form-control" placeholder="name">
+        </div>
+        <div class="col-sm">
+            <input type="text" class="form-control second" placeholder="email">
+        </div>
+    </div>
+    <div class="message mt-4">
+        <textarea name="message" id="message" class="form-control" placeholder="message">
+
+        </textarea>
+    </div>
+    <input type="submit" class="btn btn-success m-auto d-block" value="submit">
+</form>
+</div>
