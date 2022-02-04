@@ -11,11 +11,12 @@ import { of, throwError } from 'rxjs';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  url = 'http://localhost:6000/'
+  url = 'http://localhost:5000/'
   signup(payload: any) {
-    return this.http.post<{token: string, user: object}>(this.url + 'signup', payload)
+    return this.http.post<{token: string, user: object}>(this.url + 'users/signup', payload)
       .pipe(
         map((res) => {
+          console.log(res);
           localStorage.setItem('token', res.token);
           return res.user;
         }),
