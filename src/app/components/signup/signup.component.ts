@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -8,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
 
   form = this.fb.group({
     firstName: this.fb.control('', [Validators.required]),
@@ -37,6 +38,14 @@ export class SignupComponent implements OnInit {
     return this.form.get('password');
   }
   ngOnInit(): void {
+  }
+  submit() {
+    this.authService.signup(this.form.value)
+      .subscribe(user=>{
+        console.log(user);
+      }, (err)=>{
+        alert(err.message);
+      })
   }
 
 }

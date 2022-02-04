@@ -1,0 +1,4 @@
+<div *ngIf="isModalOpen" class="alert alert-danger alert-dismissable" [ngClass]="{'opened': isModalOpen}" #modal [ngStyle]="{'left': width/2 - 150+'px'}">
+    <span class="error">There was an error</span>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
