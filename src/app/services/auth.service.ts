@@ -31,7 +31,19 @@ export class AuthService {
   }
 
   login(payload: any) {
-
+    return this.http.post<{token: string, user: object}>(this.url + 'login', payload)
+      .pipe(
+        map(res=>{
+          this.storeToken(res.token);
+        }),
+        catchError(err=>{
+          if(err.status == 400) {
+            return throwError(new Error('bad request'));
+          }else{
+            return throwError(new Error('unknown error'));
+          }
+        })
+      )
   }
   storeToken(token: any) {
     localStorage.setItem('token', token);
