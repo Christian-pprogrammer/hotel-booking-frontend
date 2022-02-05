@@ -1,0 +1,18 @@
+input {
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 578px) {
+    svg {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 578px) {
+    form {
+        width: 80%;
+    }
+    svg {
+        margin-top: 50px;
+    }
+}
