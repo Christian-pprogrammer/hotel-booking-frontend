@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -49,7 +50,17 @@ import { ModalComponent } from './components/modal/modal.component';
     BrowserAnimationsModule,
     MatIconModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+        authScheme: 'Bearer ',
+        allowedDomains: ['localhost:5000'],
+        disallowedRoutes: ['localhost:5000/users/login', 'localhost:5000/users/signup']
+      }
+    })
   ],
   providers: [
     {provide: ErrorHandler, useClass: AppErrorHandler}

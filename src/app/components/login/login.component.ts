@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) { }
   form = this.fb.group({
     username: this.fb.control('', [Validators.required]),
     password: this.fb.control('', [Validators.required])
@@ -25,7 +26,8 @@ export class LoginComponent {
   submit() {
     this.auth.login(this.form.value)
       .subscribe(user=>{
-        alert('hellowrold');
+        console.log(user);
+        this.router.navigate(['/home']);
       })
   }
 }

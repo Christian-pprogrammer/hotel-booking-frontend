@@ -12,9 +12,9 @@
                         class="form-control" 
                         placeholder="username"
                         formControlName="username">
-                    <!-- <span class="text-danger" *ngIf="firstName.touched && firstName.errors?.required">
-                        FirstName is required
-                    </span> -->
+                    <span class="text-danger" *ngIf="username.touched && username.errors?.required">
+                        username is required
+                    </span>
                 </div>
                 <div class="password">
                     <input 
@@ -22,11 +22,11 @@
                         class="form-control" 
                         placeholder="password"
                         formControlName="password">
-                    <!-- <span class="text-danger" *ngIf="password.touched && password.errors?.required">
+                    <span class="text-danger" *ngIf="password.touched && password.errors?.required">
                         password is required
-                    </span> -->
+                    </span>
                 </div>
-                <input type="submit" class="btn btn-block btn-success" value="submit">
+                <input type="submit" class="btn btn-block btn-success" value="submit" [disabled]="!form.valid">
             </form>
         </div>
     </div>

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { of, throwError } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +39,10 @@ export class AuthService {
         }),
         catchError(err=>{
           if(err.status == 400) {
+            alert('bad request');
             return throwError(new Error('bad request'));
           }else{
+            alert('unknown error');
             return throwError(new Error('unknown error'));
           }
         })
@@ -47,5 +50,15 @@ export class AuthService {
   }
   storeToken(token: any) {
     localStorage.setItem('token', token);
+  }
+  isLoggedIn() {
+    const jwtHelperService = new JwtHelperService();
+    const decodedToken = jwtHelperService.decodeToken(localStorage.getItem('token'));
+    const isExpired = jwtHelperService.isTokenExpired(localStorage.getItem('token'));
+    if(!decodedToken || isExpired) {
+      return false;
+    }else{
+      return true;
+    }
   }
 }
