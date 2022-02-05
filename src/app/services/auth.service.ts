@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   login(payload: any) {
-    return this.http.post<{token: string, user: object}>(this.url + 'login', payload)
+    return this.http.post<{token: string, user: object}>(this.url + 'users/login', payload)
       .pipe(
         map(res=>{
           this.storeToken(res.token);

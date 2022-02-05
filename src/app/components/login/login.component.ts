@@ -23,6 +23,9 @@ export class LoginComponent {
   }
 
   submit() {
-    this.auth.login(this.form.value);
+    this.auth.login(this.form.value)
+      .subscribe(user=>{
+        alert('hellowrold');
+      })
   }
 }
