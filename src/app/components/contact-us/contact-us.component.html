@@ -3,19 +3,27 @@
 <form [formGroup]="form">
     <div class="info row no-gutters" formGroupName="info">
         <div class="col-sm">
-            <input type="text" class="form-control" placeholder="name" formControlName="name">
-            <span *ngIf="name" class="text-danger">name is required</span>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="name" 
+                formControlName="name">
+            <span *ngIf="name.touched && name.errors.required" class="text-danger">name is required</span>
         </div>
         <div class="col-sm">
-            <input type="text" class="form-control second" placeholder="email" formControlName="email">
-            <span class="text-danger float-sm-right">password is required</span>
+            <input 
+                type="text" 
+                class="form-control second" 
+                placeholder="email" 
+                formControlName="email">
+            <span *ngIf="email.touched && email.errors.required" class="text-danger float-sm-right">email is required</span>
         </div>
     </div>
     <div class="message mt-4 mb-4">
         <textarea name="message" id="message" class="form-control" placeholder="message" formControlName="message">
 
         </textarea>
-        <span class="text-danger">message required</span>
+        <span *ngIf="message.touched && message.errors.required" class="text-danger">message required</span>
     </div>
     <input type="submit" class="btn btn-success m-auto d-block" value="submit">
 </form>

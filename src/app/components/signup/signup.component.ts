@@ -1,6 +1,7 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   form = this.fb.group({
     firstName: this.fb.control('', [Validators.required]),
@@ -43,6 +44,7 @@ export class SignupComponent implements OnInit {
     this.authService.signup(this.form.value)
       .subscribe(user=>{
         console.log(user);
+        this.router.navigate(['/home']);
       }, (err)=>{
         alert(err.message);
       })

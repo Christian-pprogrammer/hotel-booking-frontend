@@ -17,7 +17,7 @@ export class AuthService {
       .pipe(
         map((res) => {
           console.log(res);
-          localStorage.setItem('token', res.token);
+          this.storeToken(res.token);
           return res.user;
         }),
         catchError((error: Response) => {
@@ -28,5 +28,12 @@ export class AuthService {
           }
         })
       )
+  }
+
+  login(payload: any) {
+
+  }
+  storeToken(token: any) {
+    localStorage.setItem('token', token);
   }
 }
