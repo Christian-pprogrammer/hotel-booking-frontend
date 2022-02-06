@@ -20,11 +20,11 @@
                 <li *ngIf="!isLoggedIn" class="nav-item">
                     <a routerLink="/signup" class="nav-link">signup</a>
                 </li>
-                <li *ngIf="!isLoggedIn class="nav-item">
+                <li *ngIf="!isLoggedIn" class="nav-item">
                     <a routerLink="/login" class="nav-link">login</a>
                 </li>
                 <li *ngIf="isLoggedIn" class="nav-item">
-                    <a routerLink="/logout" class="nav-link">logout</a>
+                    <a routerLink="/logout" class="nav-link" (click)="logout()">logout</a>
                 </li>
             </ul>
             <form class="form-inline ml-auto">
