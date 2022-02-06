@@ -4,7 +4,7 @@ import { AppBadRequestError } from './../common/app-bad-request-error';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
-import { BehaviorSubject, of, throwError } from 'rxjs';
+import { Subject , of, throwError } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -12,7 +12,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
-  private currentUserSubject = BehaviorSubject<any>()
+  public currentUserSubject = new Subject<any>();
   constructor(private http: HttpClient, private router: Router) { }
   url = 'http://localhost:5000/'
   signup(payload: any) {
@@ -41,8 +41,7 @@ export class AuthService {
         }),
         catchError(err=>{
           if(err.status == 400) {
-            alert('bad request');
-            return throwError(new Error('bad request'));
+            return throwError(err);
           }else{
             alert('unknown error');
             return throwError(new Error('unknown error'));
@@ -52,6 +51,7 @@ export class AuthService {
   }
   storeToken(token: any) {
     localStorage.setItem('token', token);
+    this.currentUserSubject.next(true);
   }
   isLoggedIn() {
     const jwtHelperService = new JwtHelperService();
@@ -65,6 +65,7 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem('token');
+    this.currentUserSubject.next(false);
     this.router.navigate(['/login']);
   }
 }

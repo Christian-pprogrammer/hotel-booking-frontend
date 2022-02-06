@@ -23,11 +23,14 @@ export class LoginComponent {
     return this.form.get('password');
   }
 
+  error: string;
   submit() {
     this.auth.login(this.form.value)
       .subscribe(user=>{
         console.log(user);
         this.router.navigate(['/home']);
+      }, error=> {
+        this.error = error.error.message;
       })
   }
 }

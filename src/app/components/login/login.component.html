@@ -6,6 +6,10 @@
         <div class="col-md">
             <form class="border rounded p-4 float-right" [formGroup]="form" (ngSubmit)="submit()">
                 <h3 class="text-center">Login</h3>
+                <div *ngIf="error" class="alert alert-danger bg-danger alert-dismissabel">
+                    {{error}}
+                    <button class="close" data-dismiss="alert">&times;</button>
+                </div>
                 <div class="firstName">
                     <input 
                         type="text" 
