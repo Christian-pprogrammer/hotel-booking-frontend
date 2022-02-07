@@ -26,6 +26,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { HallsComponent } from './components/halls/halls.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { CreateRoomComponent } from './components/create-room/create-room.component';
+import { CreateHallComponent } from './components/create-hall/create-hall.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ModalComponent } from './components/modal/modal.component';
     FooterComponent,
     RoomsComponent,
     HallsComponent,
-    ModalComponent
+    ModalComponent,
+    CreateRoomComponent,
+    CreateHallComponent
   ],
   imports: [
     BrowserModule,

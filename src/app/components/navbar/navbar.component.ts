@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
   isLoggedIn: boolean;
+  isAdmin:boolean = this.auth.isAdmin();
   ngOnInit(): void {
     this.auth.currentUserSubject.subscribe((data) => {
       this.isLoggedIn = data;

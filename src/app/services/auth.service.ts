@@ -66,7 +66,7 @@ export class AuthService {
       return true;
     }
   }
-  isAdmin() {
+  isAdmin():boolean {
     if(!localStorage.getItem('token') || !localStorage.getItem('user')) {
       return false;
     }
