@@ -51,6 +51,9 @@ export class AuthService {
   }
   storeToken(token: any) {
     localStorage.setItem('token', token);
+    const jwtHelperService = new JwtHelperService();
+    const decodedToken = jwtHelperService.decodeToken(token);
+    localStorage.setItem('user', decodedToken);
     this.currentUserSubject.next(true);
   }
   isLoggedIn() {
@@ -62,6 +65,16 @@ export class AuthService {
     }else{
       return true;
     }
+  }
+  isAdmin() {
+    if(!localStorage.getItem('token') || !localStorage.getItem('user')) {
+      return false;
+    }
+    const user = localStorage.getItem('user');
+    if((user as any).isAdmin == true) {
+      return true;
+    }
+    return false;
   }
   logout() {
     localStorage.removeItem('token');
