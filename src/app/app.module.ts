@@ -28,6 +28,7 @@ import { HallsComponent } from './components/halls/halls.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateRoomComponent } from './components/create-room/create-room.component';
 import { CreateHallComponent } from './components/create-hall/create-hall.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CreateHallComponent } from './components/create-hall/create-hall.compon
     HallsComponent,
     ModalComponent,
     CreateRoomComponent,
-    CreateHallComponent
+    CreateHallComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

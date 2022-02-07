@@ -17,14 +17,14 @@
                 <li class="nav-item">
                     <a routerLink="/halls" class="nav-link">halls</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="isLoggedIn && isAdmin" class="nav-item">
                     <a routerLink="/create-room" class="nav-link">create room</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="isLoggedIn && isAdmin" class="nav-item">
                     <a routerLink="/create-hall" class="nav-link">create hall</a>
                 </li>
-                <li class="nav-item">
-                    <a routerLink="/halls" class="nav-link">orders</a>
+                <li *ngIf="isLoggedIn && isAdmin" class="nav-item">
+                    <a routerLink="/orders" class="nav-link">orders</a>
                 </li>
                 <li *ngIf="!isLoggedIn" class="nav-item">
                     <a routerLink="/signup" class="nav-link">signup</a>

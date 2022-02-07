@@ -1,3 +1,6 @@
+import { OrdersComponent } from './components/orders/orders.component';
+import { CreateHallComponent } from './components/create-hall/create-hall.component';
+import { CreateRoomComponent } from './components/create-room/create-room.component';
 import { HallsComponent } from './components/halls/halls.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -26,6 +29,18 @@ const routes: Routes = [
   {
     path: 'halls',
     component: HallsComponent
+  },
+  {
+    path: 'create-room',
+    component: CreateRoomComponent
+  },
+  {
+    path: 'create-hall',
+    component: CreateHallComponent
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent
   }
 ];
 

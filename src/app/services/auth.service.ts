@@ -54,7 +54,7 @@ export class AuthService {
     const jwtHelperService = new JwtHelperService();
     const decodedToken = jwtHelperService.decodeToken(token);
     localStorage.setItem('user', decodedToken);
-    this.currentUserSubject.next(true);
+    this.currentUserSubject.next({user: decodedToken, loggedIn: true});
   }
   isLoggedIn() {
     const jwtHelperService = new JwtHelperService();
@@ -67,7 +67,7 @@ export class AuthService {
     }
   }
   isAdmin():boolean {
-    if(!localStorage.getItem('token') || !localStorage.getItem('user')) {
+    if(!this.isLoggedIn() || !localStorage.getItem('token') || !localStorage.getItem('user')) {
       return false;
     }
     const user = localStorage.getItem('user');
@@ -78,7 +78,8 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem('token');
-    this.currentUserSubject.next(false);
+    localStorage.removeItem('user');
+    this.currentUserSubject.next({user: {isAdmin: false}, loggedIn: false});
     this.router.navigate(['/login']);
   }
 }
