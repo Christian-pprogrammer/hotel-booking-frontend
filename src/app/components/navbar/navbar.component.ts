@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
-  isLoggedIn: boolean;
+  isLoggedIn: boolean = this.auth.isLoggedIn();
   isAdmin:boolean = this.auth.isAdmin();
   ngOnInit(): void {
     this.auth.currentUserSubject.subscribe((data) => {

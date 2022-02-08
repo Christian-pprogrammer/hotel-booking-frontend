@@ -53,7 +53,7 @@ export class AuthService {
     localStorage.setItem('token', token);
     const jwtHelperService = new JwtHelperService();
     const decodedToken = jwtHelperService.decodeToken(token);
-    localStorage.setItem('user', decodedToken);
+    localStorage.setItem('user', JSON.stringify(decodedToken));
     this.currentUserSubject.next({user: decodedToken, loggedIn: true});
   }
   isLoggedIn() {
@@ -66,11 +66,11 @@ export class AuthService {
       return true;
     }
   }
-  isAdmin():boolean {
-    if(!this.isLoggedIn() || !localStorage.getItem('token') || !localStorage.getItem('user')) {
+  isAdmin() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if(!user) {
       return false;
     }
-    const user = localStorage.getItem('user');
     if((user as any).isAdmin == true) {
       return true;
     }
