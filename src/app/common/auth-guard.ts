@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  isLoggedIn: boolean;
+  isLoggedIn: boolean = this.authService.isLoggedIn();
   constructor(private authService: AuthService) {
     this.authService.currentUserSubject.subscribe(data=> {
       this.isLoggedIn = data.loggedIn;
