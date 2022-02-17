@@ -1,3 +1,4 @@
+import { AuthGuard } from './common/auth-guard';
 import { OrdersComponent } from './components/orders/orders.component';
 import { CreateHallComponent } from './components/create-hall/create-hall.component';
 import { CreateRoomComponent } from './components/create-room/create-room.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
   },
   {
     path: 'create-room',
-    component: CreateRoomComponent
+    component: CreateRoomComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-hall',
