@@ -7,15 +7,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService) {}
+  isLoggedIn: boolean;
+  constructor(private authService: AuthService) {
+    this.authService.currentUserSubject.subscribe(data=> {
+      this.isLoggedIn = data.loggedIn;
+    })
+  }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-    ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.authService.isLoggedIn) {
-      return true;
-    }
-    return false;
+    ): Observable<boolean | UrlTree> | boolean {
+      if(this.isLoggedIn) {
+        return true;
+      }else{
+        return false;
+      }
   }
 
 }
