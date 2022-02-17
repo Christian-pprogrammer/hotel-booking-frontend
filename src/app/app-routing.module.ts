@@ -38,11 +38,13 @@ const routes: Routes = [
   },
   {
     path: 'create-hall',
-    component: CreateHallComponent
+    component: CreateHallComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'orders',
-    component: OrdersComponent
+    component: OrdersComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
