@@ -175,14 +175,16 @@
             formControlName="price"
             id="price">
         </div>
-        <input
-          type="submit"
-          class="btn btn-success btn-block mt-3"
-          value="submit"
-        />
-      </form>
-      <mat-spinner></mat-spinner>
+        <button
+        type="submit"
+        class="btn btn-success btn-block mt-3">
+          <mat-spinner [diameter]="25" [color]="'white'" style="margin: auto;" *ngIf="loading; else notLoading"></mat-spinner>
+          <ng-template #notLoading>
+            submit
+          </ng-template>
 
+        </button>
+      </form>
     </div>
   </div>
 </div>

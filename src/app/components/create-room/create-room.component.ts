@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class CreateRoomComponent {
 
   fileData:any;
+  loading: boolean = false;
 
   constructor(private fb: FormBuilder, private roomsService: RoomsService) {}
 
@@ -33,6 +34,7 @@ export class CreateRoomComponent {
     return this.form.get('price');
   }
   submit() {
+    this.loading = true;
     this.roomsService.uploadImage(this.fileData)
       .subscribe((res: any) => {
         this.form.value.roomImage = {
@@ -49,8 +51,10 @@ export class CreateRoomComponent {
     this.roomsService.createRoom(this.form.value)
       .subscribe(res => {
         console.log(res);
+        this.loading = false;
       }, err => {
         console.log(err)
+        this.loading = false;
       })
   }
 
