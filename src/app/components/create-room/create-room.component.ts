@@ -33,7 +33,25 @@ export class CreateRoomComponent {
     return this.form.get('price');
   }
   submit() {
-    this.roomsService.createRoom(this.form.value, this.fileData);
+    this.roomsService.uploadImage(this.fileData)
+      .subscribe((res: any) => {
+        this.form.value.roomImage = {
+          url: res.url,
+          public_id: res.public_id
+        }
+        this.sendData();
+      }, (err) => {
+        console.log(err);
+      })
+  }
+
+  sendData() {
+    this.roomsService.createRoom(this.form.value)
+      .subscribe(res => {
+        console.log(res);
+      }, err => {
+        console.log(err)
+      })
   }
 
   getFile(e:any){

@@ -22,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
 //angular material
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { AppRoutingModule } from './app-routing.module';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { HallsComponent } from './components/halls/halls.component';
@@ -57,6 +58,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     MatIconModule,
     AppRoutingModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
