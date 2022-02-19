@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-room-card',
   templateUrl: './room-card.component.html',
   styleUrls: ['./room-card.component.css']
 })
-export class RoomCardComponent implements OnInit {
+export class RoomCardComponent{
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  @Input('backgroundImage') backgroundImage: any;
 }
