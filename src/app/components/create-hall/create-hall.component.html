@@ -168,19 +168,16 @@
           </div>
           <div class="price">
             <label for="price">price</label>
-            <input 
-              type="text" 
-              class="form-control" 
-              formControlName="price" 
+            <input
+              type="text"
+              class="form-control"
+              formControlName="price"
               id="price">
           </div>
-          <input
-            type="submit"
-            class="btn btn-success btn-block mt-3"
-            value="submit"
-          />
+          <button type="submit" class="btn btn-success btn-block mt-3">
+            <mat-spinner [diameter]="25" [color]="'white'" style="margin: auto;"></mat-spinner>
+          </button>
         </form>
       </div>
     </div>
   </div>
-  
