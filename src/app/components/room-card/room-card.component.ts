@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-room-card',
@@ -8,5 +8,10 @@ import { Component, Input } from '@angular/core';
 export class RoomCardComponent{
 
   constructor() { }
-  @Input('backgroundImage') backgroundImage: any;
+  @Input('room') room: any;
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    console.log(this.room);
+  }
 }

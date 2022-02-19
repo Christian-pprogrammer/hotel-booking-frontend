@@ -1,3 +1,4 @@
+import { RoomsService } from './../../services/rooms.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private roomsService: RoomsService) { }
+  rooms: any;
   ngOnInit(): void {
+    this.roomsService.getRooms()
+      .subscribe((res: any)=>{
+        this.rooms = res.rooms;
+      })
   }
 
 }

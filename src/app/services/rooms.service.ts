@@ -33,4 +33,7 @@ export class RoomsService {
 
     return this.http.post(this.url, payload);
   }
+  getRooms() {
+    return this.http.get(this.url);
+  }
 }
