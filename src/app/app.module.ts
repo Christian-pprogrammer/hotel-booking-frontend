@@ -30,6 +30,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { CreateRoomComponent } from './components/create-room/create-room.component';
 import { CreateHallComponent } from './components/create-hall/create-hall.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { RoomCardComponent } from './components/room-card/room-card.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     ModalComponent,
     CreateRoomComponent,
     CreateHallComponent,
-    OrdersComponent
+    OrdersComponent,
+    RoomCardComponent
   ],
   imports: [
     BrowserModule,
