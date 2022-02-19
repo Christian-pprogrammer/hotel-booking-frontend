@@ -1,3 +1,4 @@
+import { RoomsService } from './../../services/rooms.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 
@@ -7,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-room.component.css'],
 })
 export class CreateRoomComponent {
-  constructor(private fb: FormBuilder) {}
+
+  fileData:any;
+
+  constructor(private fb: FormBuilder, private roomsService: RoomsService) {}
 
   form = this.fb.group({
     roomNumber: this.fb.control('', [Validators.required]),
@@ -29,6 +33,10 @@ export class CreateRoomComponent {
     return this.form.get('price');
   }
   submit() {
-    console.log(this.form.value)
+    this.roomsService.createRoom(this.form.value, this.fileData);
+  }
+
+  getFile(e:any){
+    this.fileData=e.target.files[0];
   }
 }

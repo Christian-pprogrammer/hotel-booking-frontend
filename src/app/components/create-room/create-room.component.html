@@ -164,14 +164,15 @@
             class="form-control"
             formControlName="roomImage"
             id="roomImage"
+            (change)="getFile($event)"
           />
         </div>
         <div class="price">
           <label for="price">price</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            formControlName="price" 
+          <input
+            type="text"
+            class="form-control"
+            formControlName="price"
             id="price">
         </div>
         <input
