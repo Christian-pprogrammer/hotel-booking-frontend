@@ -9,8 +9,8 @@ import { throwError } from 'rxjs';
 export class RoomsService {
 
   constructor(private http:HttpClient) { }
-  url = 'http://localhost:5000/'
-  createRoom(payload: object, fileData: any) {
+  url = 'http://localhost:5000/rooms/'
+  createRoom(payload: any, fileData: any) {
     let formData = new FormData();
     formData.append("file", fileData);
     formData.append("upload_preset", "kqznhjvq");
@@ -25,8 +25,21 @@ export class RoomsService {
           }
         })
       )
-      .subscribe(res=>{
-        this.http.post()
+      .subscribe((res: any)=>{
+        payload.roomImage = {
+          public_id: res.public_id,
+          url: res.url
+        }
+        return this.http.post(this.url, payload)
+          .pipe(
+            catchError((err: any)=>{
+              if(err.status == 400) {
+                return throwError(new Error("unknown error"));
+              }else{
+                return throwError(new Error("unknown error"));
+              }
+            })
+          )
       })
   }
 }
